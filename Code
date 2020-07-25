@@ -55,4 +55,3 @@ def test_two_digit_word():
     assert two_digit_word(28) == "twenty-eight"
     
 test_two_digit_word()
-
