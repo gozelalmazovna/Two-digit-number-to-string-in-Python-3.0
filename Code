@@ -1,0 +1,48 @@
+#Declaration of lists
+UNITS = ["zero", "one", "two", "three", "four", "five",
+         "six", "seven", "eight", "nine"]
+
+TENS = ["", "", "twenty", "thirty", "forty", "fifty", 
+         "sixty", "seventy", "eighty", "ninety"]
+
+TEENS = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+         "sixteen", "seventeen", "eighteen", "nineteen"]
+
+def two_digit_word(num):
+    """Function consumes two digit number and produces string giving the
+       number in words
+       
+       Preconditions:
+       num = two-digit int > 0
+       
+       Result
+       string = str
+    """
+    #declaration of a string
+    string = "Love"
+    
+    #checking the conditions
+    if num % 10 == 0 and num // 10 != 1:
+        pos = num // 10
+        string = TENS[pos]
+        
+    elif num % 10 == 0 and num // 10 == 1:
+        string = TEENS[0]
+    
+    elif num % 10 != 0 and num // 10 != 1:
+        pos = num // 10
+        quot = num % 10
+        string = TENS[pos] + "-" + UNITS[quot]
+    
+    else:
+        quot = num % 10
+        string = TEENS[quot]
+    
+    # returning a string
+    return string 
+
+#checking by printing the result    
+print(two_digit_word(88)) 
+        
+    
+    
