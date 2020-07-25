@@ -29,10 +29,14 @@ def two_digit_word(num):
     elif num % 10 == 0 and num // 10 == 1:
         string = TEENS[0]
     
-    elif num % 10 != 0 and num // 10 != 1:
+    elif num % 10 != 0 and num // 10 != 1 and num>20:
         pos = num // 10
         quot = num % 10
         string = TENS[pos] + "-" + UNITS[quot]
+    
+    elif num % 10 != 0 and num // 10 != 1 and num<10:
+        quot = num % 10
+        string = UNITS[quot]
     
     else:
         quot = num % 10
@@ -41,8 +45,14 @@ def two_digit_word(num):
     # returning a string
     return string 
 
-#checking by printing the result    
-print(two_digit_word(88)) 
-        
+#checking the result    
+def test_two_digit_word():
+    """ Tests correctness of two_digit-word
+    """
+    assert two_digit_word(10) == "ten"
+    assert two_digit_word(8) == "eight"
+    assert two_digit_word(17) == "seventeen"
+    assert two_digit_word(28) == "twenty-eight"
     
-    
+test_two_digit_word()
+
